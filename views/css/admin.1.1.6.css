@@ -1399,3 +1399,32 @@ table#coreVulnerabilities.dataTable .cve {
 table#coreVulnerabilities.dataTable td.dt-control{
     cursor: pointer;
 }
+#prestascansecurity_main_container .menu_element.floatright #subscription-status span{
+    padding: 5px 14px 5px 8px;
+}
+#prestascansecurity_main_container .menu_element.floatright a:not(#subscription-status) span{
+    padding: 6px 8px 5px 8px;
+}
+#prestascansecurity_main_container #connexion .dropdown .dropdown-content{
+    min-width: 140px;
+}
+#prestascansecurity_main_container #connexion .dropdown .dropdown-content div{
+    margin-bottom: 5px;
+}
+#prestascansecurity_main_container #connexion .dropdown .dropdown-content div:first-child{
+    margin-top: 5px;
+}
+#prestascansecurity_main_container .menu_element.floatright a.with-tooltip span.link-tooltip{
+    display: none;
+}
+#prestascansecurity_main_container .menu_element.floatright a.with-tooltip:hover span.link-tooltip{
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    display: block;
+    top: -50px;
+    right: -55px;
+    min-width:220px;
+}

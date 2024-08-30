@@ -31,6 +31,10 @@ class Response
 {
     public static function checkResponse($response)
     {
+        if (is_null($response)) {
+            throw new \PrestaScan\Exception\UnauthenticatedException('Not logged in');
+        }
+
         if (!is_array($response) || !isset($response['success'])) {
             throw new \Exception('Invalid API Response');
         }
