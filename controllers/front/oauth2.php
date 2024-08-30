@@ -116,7 +116,7 @@ class PrestascansecurityOauth2ModuleFrontController extends ModuleFrontControlle
             Context::getContext()->cookie->__unset('psscan_urlconfigbo');
 
             // @todo : Manage this error
-            die('Exception retriving access token: ' . $exp->getMessage());
+            die('Exception retrieving access token: ' . $exp->getMessage());
         }
     }
 
@@ -154,6 +154,7 @@ class PrestascansecurityOauth2ModuleFrontController extends ModuleFrontControlle
         $email = \Tools::getValue('email');
         $webcrontoken = \Tools::getValue('webcrontoken');
         $psShopUrls = \Tools::getValue('ps_shop_urls');
+        $preferredLanguage = \PrestaScan\Tools::detectBrowserLanguage();
         $params = [
             'createclient' => true,
             'firstname' => $firstName,
@@ -162,6 +163,7 @@ class PrestascansecurityOauth2ModuleFrontController extends ModuleFrontControlle
             'redirect' => $redirectUrl,
             'webcrontoken' => $webcrontoken,
             'ps_shop_urls' => $psShopUrls,
+            'preferred_language' => $preferredLanguage,
         ];
 
         // Build the query string

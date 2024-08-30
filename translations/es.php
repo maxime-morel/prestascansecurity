@@ -23,7 +23,7 @@ $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_00ed7852d153c8887f8
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_d3d2e617335f08df83599665eef8a418'] = 'Cerrar';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_270097ae78dcf5550472a7b90d704aa7'] = 'Actualizar estado';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_53598e5a1b2d3ef7a9efe774db87a22e'] = 'Se solicita actualizar el módulo para ejecutar un nuevo escaneo.';
-$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_3437d76a8fc9d682badac2a7b3924487'] = 'Si actualizó su módulo manualmente y aún recibe este mensaje, intente actualizar el estado de su módulo haciendo clic en el botón "Actualizar estado" a continuación.';
+$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_3437d76a8fc9d682badac2a7b3924487'] = 'Si actualizó su módulo manualmente y aún recibe este mensaje, intente actualizar el estado de su módulo haciendo clic en el botón \"Actualizar estado\" a continuación.';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_01fa0a26c0c8cb2259b135f71f37a94b'] = 'Para iniciar un escaneo, inicie sesión o cree una cuenta. Tener una cuenta nos permite realizar escaneos de forma segura en su nombre y brindar resultados precisos.';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_c197207fc261eac1360ad875c7af45d0'] = 'Esta alerta se activa porque se ha descubierto una nueva vulnerabilidad en los códigos nativos de PrestaShop. Su tienda puede ser vulnerable si aún no existe un parche. Comuníquese con su agencia o con nuestro equipo de expertos para resolver el problema. También se recomienda una actualización de PrestaShop. Realice nuevamente un análisis completo de vulnerabilidades de PrestaShop para obtener más detalles.';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_da1027ae9457c3b62cb39aa833c3e232'] = 'Inicia sesión o crea una cuenta';
@@ -276,7 +276,9 @@ $_MODULE['<{prestascansecurity}prestashop>menu_4d37406bbf556fb021f589529cccdebe'
 $_MODULE['<{prestascansecurity}prestashop>menu_0a684ba742e2b30e04c273b29c956009'] = 'Escaneo de módulos';
 $_MODULE['<{prestascansecurity}prestashop>menu_e4a6773beabe0ff5bb9182a2390c62a2'] = 'Vulnerabilidades de PrestaShop';
 $_MODULE['<{prestascansecurity}prestashop>menu_bbaff12800505b22a853e8b7f4eb6a22'] = 'Contacto';
+$_MODULE['<{prestascansecurity}prestashop>menu_405521d2ded20774c3ba3d1a1784b64a'] = 'Estás conectado con el correo electrónico';
 $_MODULE['<{prestascansecurity}prestashop>menu_8c5e39fcbdc7303f11a578a76e32f7f5'] = 'Autenticación';
+$_MODULE['<{prestascansecurity}prestashop>menu_e223170428de1027fdb456f47c54d4cf'] = 'Administrar mi cuenta';
 $_MODULE['<{prestascansecurity}prestashop>menu_f4f70727dc34561dfde1a3c529b6205c'] = 'Configuraciones';
 $_MODULE['<{prestascansecurity}prestashop>menu_0323de4f66a1700e2173e9bcdce02715'] = 'Cerrar sesión';
 $_MODULE['<{prestascansecurity}prestashop>menu_99dea78007133396a7b8ed70578ac6ae'] = 'Iniciar sesión';
@@ -295,7 +297,7 @@ $_MODULE['<{prestascansecurity}prestashop>update_2fc82d7dcda72414353b589ab28f165
 $_MODULE['<{prestascansecurity}prestashop>update_74f00b8807ce9b15641a0f350d120139'] = 'Error inesperado al descargar o extraer el archivo del módulo.';
 $_MODULE['<{prestascansecurity}prestashop>update_03ff961e875fd26fc3c6a30ab16ada14'] = 'Error al obtener la versión del módulo.';
 $_MODULE['<{prestascansecurity}prestashop>update_088af057f9dbcfc475e253dfa952a645'] = 'Datos de versión no válidos';
-$_MODULE['<{prestascansecurity}prestashop>directoriesprotectionreport_09642fbfce0ce364ad4c3892b1ff0703'] = 'Directorio de instalación detectado';
-$_MODULE['<{prestascansecurity}prestashop>directoriesprotectionreport_c711f3985fcbc1254e03acbb2250fda2'] = 'Directorio Git detectado';
-$_MODULE['<{prestascansecurity}prestashop>directoriesprotectionreport_6772c786dfc231422dbff6b7a248c0a9'] = 'Gestor SQL detectado';
+$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_09642fbfce0ce364ad4c3892b1ff0703'] = 'Directorio de instalación detectado';
+$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_c711f3985fcbc1254e03acbb2250fda2'] = 'Directorio Git detectado';
+$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_6772c786dfc231422dbff6b7a248c0a9'] = 'Gestor SQL detectado';
 $_MODULE['<{prestascansecurity}prestashop>home_no_scan_result_2f94b1908cfd7df8b0cc79a8eb88884d'] = 'No se ha realizado ningún escaneo hasta la fecha';

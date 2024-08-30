@@ -531,4 +531,17 @@ class Tools
         file_put_contents($reportFile, serialize($data));
         return true;
     }
+
+    public static function detectBrowserLanguage()
+    {
+        $preferredLanguages = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+        $languages = explode(',', $preferredLanguages);
+        if (!empty($languages)) {
+            $primaryLanguage = explode(';', $languages[0]);
+            $languageCode = explode('-', $primaryLanguage[0]);
+            return strtolower(trim($languageCode[0]));
+        }
+        $defaultLanguage = new Language(Configuration::get('PS_LANG_DEFAULT'));
+        return $defaultLanguage->iso_code;
+    }
 }

@@ -492,11 +492,16 @@ $(function () {
       var pscan = window.prestascanSecurity;
       var description = $(pscan.config.cssSelector.alertModuleVulnerabilitiesBanner).data('description');
       var iscore = $(pscan.config.cssSelector.alertModuleVulnerabilitiesBanner).data('iscore');
+      var isunsubscribe = $(pscan.config.cssSelector.alertModuleVulnerabilitiesBanner).data('isunsubscribe');
       var more_detail = banner_vulnerability_more_action;
       if (iscore) {
         var more_detail = banner_vulnerability_core_more_action;
       }
-      description = "<strong>"+more_detail+"</strong></br></br>"+banner_vulnerability_more_details+"</br>"+description;
+      if (!isunsubscribe) {
+        description = "<strong>"+decodeHTMLEntities(more_detail)+"</strong></br></br><strong>"+banner_vulnerability_more_details+"</strong></br>"+description;
+      } else {
+        description = "<strong>"+decodeHTMLEntities(more_detail)+"</strong>";
+      }
       window.prestascanSecurity_Modal.createDialog(description, []);
     },
     handleDashboardLinkDetail : function(e) {

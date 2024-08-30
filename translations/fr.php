@@ -18,12 +18,12 @@ $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_93cba07454f06a4a960
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_ea4788705e6873b424c65e91c2846b19'] = 'Annuler';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_2b899981cd65625d08f85c4940182694'] = 'ignorer';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_9e5ad85d883414983738a03021336fd0'] = 'Vous êtes sur le point de supprimer cette alerte. Vous devrez relancer un scan pour obtenir des informations supplémentaires. Êtes-vous sûr de vouloir ignorer cette alerte ?';
-$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_36d25ce75c123849ba2343b11d805f89'] = 'Cette alerte est déclenchée car une nouvelle vulnérabilité a été découverte dans PrestaShop pour ce module. Votre boutique peut être vulnérable si le module n\'est pas encore corrigé. Veuillez contacter votre agence ou notre équipe d\'experts pour résoudre le problème. Veuillez effectuer un nouveau scan complet de votre module pour obtenir plus de détails sur la vulnérabilité.';
-$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_00ed7852d153c8887f89c3021693955c'] = 'Plus de détails sur ce problème :';
+$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_36d25ce75c123849ba2343b11d805f89'] = 'Cette alerte est déclenchée car une nouvelle vulnérabilité de module a été découverte.<br />Votre boutique pourrait être vulnérable.<br />Vous pouvez effectuer un nouveau scan complet des modules afin de savoir si vous êtes concerné et si oui, alors obtenir plus de détails sur la vulnérabilité.';
+$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_00ed7852d153c8887f89c3021693955c'] = 'Détail de la vulnérabilité :';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_d3d2e617335f08df83599665eef8a418'] = 'Fermer';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_270097ae78dcf5550472a7b90d704aa7'] = 'Actualiser le statut';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_53598e5a1b2d3ef7a9efe774db87a22e'] = 'Il est nécessaire de mettre à jour le module afin d\'exécuter un nouveau scan.';
-$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_3437d76a8fc9d682badac2a7b3924487'] = 'Si vous avez mis à jour votre module manuellement et que vous obtenez toujours ce message, essayez de rafraîchir le statut de votre module en cliquant sur le bouton "Actualiser le statut" ci-dessous.';
+$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_3437d76a8fc9d682badac2a7b3924487'] = 'Si vous avez mis à jour votre module manuellement et que vous obtenez toujours ce message, essayez de rafraîchir le statut de votre module en cliquant sur le bouton \"Actualiser le statut\" ci-dessous.';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_01fa0a26c0c8cb2259b135f71f37a94b'] = 'Pour lancer un scan, veuillez vous connecter ou créer un compte. Avoir un compte nous permet d\'effectuer des scans en toute sécurité en votre nom et de fournir des résultats précis.';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_c197207fc261eac1360ad875c7af45d0'] = 'Cette alerte est déclenchée car une nouvelle vulnérabilité a été découverte dans les codes natifs de PrestaShop. Votre boutique peut être vulnérable si un correctif n\'est pas encore mis en place. Veuillez contacter votre agence ou notre équipe d\'experts pour résoudre le problème. Une mise à jour de PrestaShop est également recommandée. Veuillez effectuer un nouveau scan complet des vulnérabilités PrestaShop pour obtenir plus de détails.';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_da1027ae9457c3b62cb39aa833c3e232'] = 'Connectez-vous ou créez un compte';
@@ -276,7 +276,9 @@ $_MODULE['<{prestascansecurity}prestashop>menu_4d37406bbf556fb021f589529cccdebe'
 $_MODULE['<{prestascansecurity}prestashop>menu_0a684ba742e2b30e04c273b29c956009'] = 'Analyse des modules';
 $_MODULE['<{prestascansecurity}prestashop>menu_e4a6773beabe0ff5bb9182a2390c62a2'] = 'Vulnérabilités PrestaShop';
 $_MODULE['<{prestascansecurity}prestashop>menu_bbaff12800505b22a853e8b7f4eb6a22'] = 'Contact';
+$_MODULE['<{prestascansecurity}prestashop>menu_405521d2ded20774c3ba3d1a1784b64a'] = 'Vous êtes connecté avec le mail';
 $_MODULE['<{prestascansecurity}prestashop>menu_8c5e39fcbdc7303f11a578a76e32f7f5'] = 'Connecté';
+$_MODULE['<{prestascansecurity}prestashop>menu_e223170428de1027fdb456f47c54d4cf'] = 'Gérer mon compte';
 $_MODULE['<{prestascansecurity}prestashop>menu_f4f70727dc34561dfde1a3c529b6205c'] = 'Paramètres';
 $_MODULE['<{prestascansecurity}prestashop>menu_0323de4f66a1700e2173e9bcdce02715'] = 'Déconnexion';
 $_MODULE['<{prestascansecurity}prestashop>menu_99dea78007133396a7b8ed70578ac6ae'] = 'Connexion';
@@ -295,7 +297,7 @@ $_MODULE['<{prestascansecurity}prestashop>update_2fc82d7dcda72414353b589ab28f165
 $_MODULE['<{prestascansecurity}prestashop>update_74f00b8807ce9b15641a0f350d120139'] = 'Erreur inattendue lors du téléchargement ou de l\'extraction de l\'archive du module.';
 $_MODULE['<{prestascansecurity}prestashop>update_03ff961e875fd26fc3c6a30ab16ada14'] = 'Erreur de récupération de la version du module.';
 $_MODULE['<{prestascansecurity}prestashop>update_088af057f9dbcfc475e253dfa952a645'] = 'Données de version invalides';
-$_MODULE['<{prestascansecurity}prestashop>directoriesprotectionreport_09642fbfce0ce364ad4c3892b1ff0703'] = 'Répertoire d\'installation détecté';
-$_MODULE['<{prestascansecurity}prestashop>directoriesprotectionreport_c711f3985fcbc1254e03acbb2250fda2'] = 'Répertoire Git détecté';
-$_MODULE['<{prestascansecurity}prestashop>directoriesprotectionreport_6772c786dfc231422dbff6b7a248c0a9'] = 'Gestionnaire SQL détecté';
+$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_09642fbfce0ce364ad4c3892b1ff0703'] = 'Répertoire d\'installation détecté';
+$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_c711f3985fcbc1254e03acbb2250fda2'] = 'Répertoire Git détecté';
+$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_6772c786dfc231422dbff6b7a248c0a9'] = 'Gestionnaire SQL détecté';
 $_MODULE['<{prestascansecurity}prestashop>home_no_scan_result_2f94b1908cfd7df8b0cc79a8eb88884d'] = 'Aucun scan n\'a été effectué à ce jour';

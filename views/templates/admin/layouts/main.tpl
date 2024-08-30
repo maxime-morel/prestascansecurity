@@ -41,7 +41,7 @@
 
 	{if isset($alert_new_modules_vulnerability) && !empty($alert_new_modules_vulnerability)}
 
-		<div id="alert_vulnerabilities_banner" style="display: none;" data-description="{$alert_new_modules_vulnerability[0].description|escape:'htmlall':'UTF-8'}" data-iscore="{$alert_new_modules_vulnerability[0].is_core}">
+		<div id="alert_vulnerabilities_banner" style="display: none;" data-description="{$alert_new_modules_vulnerability[0].description|escape:'htmlall':'UTF-8'}" data-iscore="{$alert_new_modules_vulnerability[0].is_core}" data-isunsubscribe="{if isset($alert_new_modules_vulnerability[0].module_name) && ($alert_new_modules_vulnerability[0].module_name == 'alert_module_no_detail' || $alert_new_modules_vulnerability[0].module_name == 'alert_core_no_detail')}1{else}0{/if}">
 			<p>
 				<span class="alert-title">
 					{if $alert_new_modules_vulnerability[0].is_core}

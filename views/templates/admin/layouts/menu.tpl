@@ -42,20 +42,23 @@
     <li id="connexion" class="menu_element floatright">
         {if $prestascansecurity_isLoggedIn}
             <div class="dropdown">
-              <a href="javascript:void(0);" id="login-oauth2" class='dropbtn'><i class="icon-user"></i> <span>{l s='Logged in' mod='prestascansecurity'}</span></a>
-              <div class="dropdown-content">
-                {if isset($email_user) && $email_user != ''}
+        <a href="javascript:void(0);" id="login-oauth2" class='dropbtn {if isset($email_user) && $email_user != ''} with-tooltip{/if}'>
+                    {if isset($email_user) && $email_user != ''}
+                        <span class='link-tooltip'>
+                        {l s='You are connected as ' mod='prestascansecurity'}: {$email_user|escape:"html":'UTF-8'}
+                        </span>
+                    {/if}
+                    <i class="icon-user"></i> 
+                    <span>{l s='Logged in' mod='prestascansecurity'}</span>
+                </a>
+                <div class="dropdown-content">
                     <div>
-                        <a href='javascript:void(0);' title='{$email_user|escape:"html":'UTF-8'}' class='profile_email_user'>{$email_user|escape:"html":'UTF-8'}</a>
+                        <a href="{$settings_page_url|escape:"html":'UTF-8'}" target="_blank">{l s='Manage account' mod='prestascansecurity'}</a>
                     </div>
-                {/if}
-                <div>
-                    <a href="{$settings_page_url|escape:"html":'UTF-8'}" target="_blank">{l s='Settings' mod='prestascansecurity'}</a>
+                    <div class='logout'>
+                        <a href="javascript:void(0);">{l s='Logout' mod='prestascansecurity'}</a>
+                    </div>
                 </div>
-                <div class='logout'>
-                    <a href="javascript:void(0);">{l s='Logout' mod='prestascansecurity'}</a>
-                </div>
-              </div>
             </div>
         {else}
             <a href="javascript:void(0);" id="login-oauth2"><i class="icon-user"></i> <span>{l s='Login' mod='prestascansecurity'}</span></a>

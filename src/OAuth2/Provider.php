@@ -42,6 +42,8 @@ class Provider
 
     protected $urlResourceOwnerDetails;
 
+    protected $lastResponseHttpCode;
+
     public function __construct($options)
     {
         $this->clientId = isset($options['clientId']) ? $options['clientId'] : null;
@@ -50,6 +52,7 @@ class Provider
         $this->urlAuthorize = isset($options['urlAuthorize']) ? $options['urlAuthorize'] : null;
         $this->urlAccessToken = isset($options['urlAccessToken']) ? $options['urlAccessToken'] : null;
         $this->urlResourceOwnerDetails = isset($options['urlResourceOwnerDetails']) ? $options['urlResourceOwnerDetails'] : null;
+        $this->lastResponseHttpCode = null;
     }
 
     public function getAuthenticatedRequest($method, $url, $accessToken, array $options = [])
@@ -144,6 +147,10 @@ class Provider
             $parsedResponse['expires'] = time() + $parsedResponse['expires_in'];
         }
 
+        if (is_null($parsedResponse)) {
+            throw new \Exception('Invalid server response ( '. $this->lastResponseHttpCode . ') : ' . $response);
+        }
+
         return new AccessToken($parsedResponse);
     }
 
@@ -164,6 +171,7 @@ class Provider
     {
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $this->lastResponseHttpCode = $httpCode;
 
         if (curl_errno($ch)) {
             if (curl_errno($ch) === 28) {

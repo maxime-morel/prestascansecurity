@@ -29,6 +29,7 @@ Redirecting...
     <input type="text" id="redirect" name="redirect" value="{$redirect}">
     <input type="text" id="webcrontoken" name="webcrontoken" value="{$webcrontoken}">
     <input type="text" id="ps_shop_urls" name="ps_shop_urls" value="{$ps_shop_urls}">
+    <input type="text" id="preferred_language" name="preferred_language" value="{$preferred_language}">
 </form>
 
 {literal}
