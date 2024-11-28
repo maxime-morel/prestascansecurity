@@ -117,21 +117,21 @@
         </thead>
         {foreach name=aFiles from=$aFiles item=aFile}
             {if !isset($aFile.is_dismissed) || !$aFile.is_dismissed}
-                {if isset($aFile.severity.value) && ($aFile.severity.value === 'Critical' || $aFile.severity.value === 'critical')}
+                {if isset($aFile.severity.severity_value) && ($aFile.severity.severity_value === 'Critical' || $aFile.severity.severity_value === 'critical')}
                     {assign var='datasort' value=1}
-                {elseif isset($aFile.severity.value) && ($aFile.severity.value === 'High' || $aFile.severity.value === 'high')}
+                {elseif isset($aFile.severity.severity_value) && ($aFile.severity.severity_value === 'High' || $aFile.severity.severity_value === 'high')}
                     {assign var='datasort' value=2}
-                {elseif isset($aFile.severity.value) && ($aFile.severity.value === 'Medium' || $aFile.severity.value === 'medium')}
+                {elseif isset($aFile.severity.severity_value) && ($aFile.severity.severity_value === 'Medium' || $aFile.severity.severity_value === 'medium')}
                     {assign var='datasort' value=3}
                 {else}
                     {assign var='datasort' value=4}
                 {/if}
             {else}
-                {if isset($aFile.severity.value) && ($aFile.severity.value === 'Critical' || $aFile.severity.value === 'critical')}
+                {if isset($aFile.severity.severity_value) && ($aFile.severity.severity_value === 'Critical' || $aFile.severity.severity_value === 'critical')}
                     {assign var='datasort' value=5}
-                {elseif isset($aFile.severity.value) && ($aFile.severity.value === 'High' || $aFile.severity.value === 'high')}
+                {elseif isset($aFile.severity.severity_value) && ($aFile.severity.severity_value === 'High' || $aFile.severity.severity_value === 'high')}
                     {assign var='datasort' value=6}
-                {elseif isset($aFile.severity.value) && ($aFile.severity.value === 'Medium' || $aFile.severity.value === 'medium')}
+                {elseif isset($aFile.severity.severity_value) && ($aFile.severity.severity_value === 'Medium' || $aFile.severity.severity_value === 'medium')}
                     {assign var='datasort' value=7}
                 {else}
                     {assign var='datasort' value=8}

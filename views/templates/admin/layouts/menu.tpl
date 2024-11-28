@@ -74,15 +74,12 @@
         {/if}
     </li>
     <li id="subscription" class="menu_element floatright full-height">
-    {if $prestascansecurity_isLoggedIn}
+    {if $prestascansecurity_isLoggedIn && isset($subscription) && $subscription}
         <div class="avantage dropdown">
             <a href="javascript:void(0);" id="subscription-status" class='dropbtn'>
                 {if isset($subscription) && $subscription}
                     <i class="icon-check"></i>
-                    <span>{l s='Active subscription' mod='prestascansecurity'}</span>
-                {else}
-                    <i class="icon-euro"></i>
-                    <span>{l s='Premium benefits' mod='prestascansecurity'}</span>
+                    <span>{l s='Active subscription' mod='prestascansecurity'}</span>                
                 {/if}
             </a>
             <div id="btn-action-avantage" class="dropdown-content">

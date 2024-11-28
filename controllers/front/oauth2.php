@@ -50,6 +50,10 @@ class PrestascansecurityOauth2ModuleFrontController extends ModuleFrontControlle
 
     public function initContent()
     {
+        // handle old site monitored change; retry a login with new site monitored
+        if (Tools::getValue('site_changed')) {
+            return $this->module->handleSiteMonitoredChanged();
+        }
         // Check our sudo user token
         if (!$this->isSudoTokenValid()) {
             \PrestaScan\Tools::displayErrorAndDie(401, 'Token mismatch');

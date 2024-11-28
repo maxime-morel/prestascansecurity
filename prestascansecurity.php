@@ -33,7 +33,7 @@ class Prestascansecurity extends Module
     {
         $this->name = 'prestascansecurity';
         $this->tab = 'others';
-        $this->version = '1.1.8';
+        $this->version = '1.1.9';
         $this->author = 'PrestaScan';
         $this->need_instance = false;
         $this->bootstrap = true;
@@ -261,6 +261,28 @@ class Prestascansecurity extends Module
 
     public function getContent()
     {
+        if ($this->isUserLoggedIn()) {
+            // check if selected url is correct on account            
+            try {
+                $postBody = array(
+                    'shop_urls' => implode(';', array_map('urlencode', $this->getShopUrls())),
+                );
+                $request = new \PrestaScan\Api\Request(
+                    'prestascan-api/v2/check-url',
+                    'POST',
+                    $postBody
+                );
+                $response = $request->getResponse();
+                if (isset($response['error']) && $response['error']) {   // disconnect
+                    $this->logout();
+                }
+            } catch (Exception $e) {
+                if ($e->getMessage() == 'Not logged in') {  //
+                    $this->logout();
+                }
+            }
+        }
+
         // Update the module if requested to do so
         $this->updateModule();
         // Check for error message to display
@@ -371,18 +393,20 @@ class Prestascansecurity extends Module
             $displayInitialScan = false;
         }
         $progressScans = Configuration::get('PRESTASCAN_SCAN_PROGRESS');
+        $scansToRetrieve = array();
         if (!empty($progressScans)) {
             $progressScans = json_decode($progressScans, true);
-            foreach ($progressScans as $scan) {
+            foreach ($progressScans as $type => $scan) {
+                $scansToRetrieve[$type] = \PrestaScanQueue::isJobToRetrieve($type);
                 if ($scan) {
                     $displayInitialScan = false;
-                    break;
                 }
             }
         }
 
         $this->context->smarty->assign('displayInitialScan', $displayInitialScan);
         $this->context->smarty->assign('progressScans', $progressScans);
+        $this->context->smarty->assign('scansToRetrieve', $scansToRetrieve);
     }
 
     protected function assignAdminVariables($moduleNewVulnerabilitiesAlert)
@@ -510,6 +534,8 @@ class Prestascansecurity extends Module
             'checkbox_risk_label' => $this->l('I understand the risks associated with removing or uninstalling modules in PrestaShop and agree to proceed with caution, prioritizing a development environment.'),
             'question_to_logout' => $this->l('Are you sure to log out?'),
             'js_error_occured' => $this->l('An error occured while generating the report. This may be due to a timeout. Please try again.'),
+            'js_ps_nodebug_error_occured' => $this->l('A error occured. Enable debug for more information and please try again.'),
+            'js_ps_error_occured' => $this->l('A error occured. Please try again.'),
             'question_to_logout' => $this->l('Are you sure to log out?'),
             'js_description' => $this->l('Description'),
             'text_confirm_log_me_out' => $this->l('Yes, log me out'),
@@ -669,5 +695,26 @@ class Prestascansecurity extends Module
         }
 
         return ucfirst($criticity);
+    }
+
+    protected function logout()
+    {
+        // Remove the data in the database
+        \PrestaScanQueue::truncate();
+        \PrestaScanVulnAlerts::truncate();
+        // Delete cache files and configuration
+        \PrestaScan\Tools::resetModuleConfigurationAndCache();
+        $this->isLoggedIn = false;
+    }
+
+    public function handleSiteMonitoredChanged()
+    {
+        if (Context::getContext()->cookie->__isset('psscan_urlconfigbo')) {
+            $urlBackOffice = Context::getContext()->cookie->__get('psscan_urlconfigbo');
+            Context::getContext()->cookie->__unset('psscan_urlconfigbo');
+            Tools::redirectAdmin($urlBackOffice . '&site_changed=1');
+        } else {
+            die($this->display(__FILE__, 'views/templates/front/sitemonitored_changed.tpl'));
+        }
     }
 }

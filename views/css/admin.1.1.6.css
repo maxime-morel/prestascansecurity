@@ -959,6 +959,7 @@ label.chkConfirmModuleUninstall input {
     width: 100%;
     position: absolute;
     bottom: 0;
+    left: 0;
 }
 #prestascansecurity_main_container #tab-report-home .scan_link.row a.btn {
     margin-top: 45px;

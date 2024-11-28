@@ -70,7 +70,17 @@
     padding: 15px 10px 10px;
     width: 100%;
 }
-
+#prestascansecurity_main_container .modal_content.has_error {
+    width: 35vw;
+    max-height: 70vh;
+}
+#prestascansecurity_main_container .modal_content.has_error .modal_body {
+    text-align: left;    
+}
+#prestascansecurity_main_container .modal_content.has_error .modal_body pre {
+    overflow: auto;
+    max-height: 60vh;
+}
 /* Add Animation */
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0} 

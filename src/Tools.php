@@ -327,7 +327,7 @@ class Tools
         if (!empty($date)) {
             $return = date('j F Y ', strtotime($date));
             $return .= in_array($languageCode, array('fr','es')) ? $at[$languageCode] : ' at ';
-            $return .= date('h\hm', strtotime($date));
+            $return .= date('h\hi', strtotime($date));
             if (in_array($languageCode, array('fr','es'))) {
                 $return = str_replace(array_keys($mois[$languageCode]), array_values($mois[$languageCode]), $return);
             }

@@ -38,7 +38,11 @@
 {/if}
 
 {if !empty($progressScans['modules_unused'])}
-    {include file="{$prestascansecurity_tpl_path|escape:'htmlall':'UTF-8'}partials/scan_in_progress.tpl" mustcancel=$progressScans['modules_unused'] datatype='modules_unused'}
+    {if isset($scansToRetrieve) && isset($scansToRetrieve['modules_unused']) && $scansToRetrieve['modules_unused']}
+        {include file="{$prestascansecurity_tpl_path|escape:'htmlall':'UTF-8'}partials/scan_to_retrieve.tpl" datatype='modules_unused'}
+    {else}
+        {include file="{$prestascansecurity_tpl_path|escape:'htmlall':'UTF-8'}partials/scan_in_progress.tpl" mustcancel=$progressScans['modules_unused'] datatype='modules_unused'}
+    {/if}
 {elseif !empty($modules_unused_results)}
     <div class="result_container col-md-4">        
         {include file="{$prestascansecurity_tpl_path|escape:'htmlall':'UTF-8'}partials/scan_result.tpl"

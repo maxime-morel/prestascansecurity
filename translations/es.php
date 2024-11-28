@@ -227,6 +227,9 @@ $_MODULE['<{prestascansecurity}prestashop>scan_in_progress_b1d3a7a65e4eeebcedc6b
 $_MODULE['<{prestascansecurity}prestashop>scan_in_progress_96726308d783c8c6143d5b22fea5d7fb'] = 'Parece que el escaneo se ha estado ejecutando durante bastante tiempo, podría haber un problema.';
 $_MODULE['<{prestascansecurity}prestashop>scan_in_progress_eb83cb7c01a3449487ded1a52bb1836c'] = 'Puede intentar forzar el escaneo para recuperar sus datos. Si esto no funciona, el escaneo se cancelará y podrá volver a intentarlo con un nuevo escaneo.';
 $_MODULE['<{prestascansecurity}prestashop>scan_in_progress_ba387b98b9462fc96925aadf3f641e6c'] = 'Forzar recuperación o cancelar';
+$_MODULE['<{prestascansecurity}prestashop>scan_to_retrieve_9a2320c81ad462c52e15563fb7d3ee4d'] = 'Descargando los últimos escaneos';
+$_MODULE['<{prestascansecurity}prestashop>scan_to_retrieve_fc4d43c730c5d2ff49c6105683a5b70a'] = 'Se está descargando el último análisis automático para su visualización.';
+$_MODULE['<{prestascansecurity}prestashop>scan_to_retrieve_732e91e4bc78bb97e63473154025e419'] = 'Esta operación puede tardar unos momentos.';
 $_MODULE['<{prestascansecurity}prestashop>scan_result_60a1994f5365c8a09a74ac6516b88629'] = 'Resultados del último escaneo';
 $_MODULE['<{prestascansecurity}prestashop>scan_result_f91fe4f33093ee783af6952f653577d4'] = 'Recientemente se descubrió una nueva vulnerabilidad, verifique su alerta arriba y vuelva a hacer un escaneo si es necesario para actualizar sus resultados';
 $_MODULE['<{prestascansecurity}prestashop>scan_result_48a098c06115a3db0efb6bcb5e31fd41'] = 'Vulnerabilidad';

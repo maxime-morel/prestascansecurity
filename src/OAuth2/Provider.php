@@ -67,6 +67,10 @@ class Provider
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
         curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        if (defined('_EOSC_MODE_DEV_') && _EOSC_MODE_DEV_) {
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        }
 
         if (isset($options['body'])) {
             curl_setopt($ch, CURLOPT_POSTFIELDS, $options['body']);
@@ -134,7 +138,11 @@ class Provider
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
         curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-
+        if (defined('_EOSC_MODE_DEV_') && _EOSC_MODE_DEV_) {
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        }
+        
         $response = $this->getResponse($ch);
         $parsedResponse = $this->parseResponse($response);
 

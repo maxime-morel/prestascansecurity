@@ -215,4 +215,13 @@ class PrestaScanQueue extends ObjectModel
                     AND TIMESTAMPDIFF(MINUTE, date_add, now()) > ' . $time);
         return empty($jobId) ? false : $jobId;
     }
+
+    public static function isJobToRetrieve($actionName)
+    {
+        $jobId = Db::getInstance()->getValue('
+                SELECT `jobid`
+                FROM `' . _DB_PREFIX_ . self::$definition['table'] . '`
+                WHERE `action_name` = "' . pSQL($actionName) . '" AND `state` = "' . pSQL(self::$actionname['TORETRIEVE']) . '" ORDER BY `id` DESC');
+        return empty($jobId) ? false : true;
+    }
 }
