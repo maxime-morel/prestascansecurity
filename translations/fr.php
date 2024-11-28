@@ -11,6 +11,8 @@ $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_036f5e4fef4f393682e
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_a3f4cecacc0164fd6c90029641134efa'] = 'Je comprends les risques associés à la suppression ou la désinstallation de modules dans PrestaShop et accepte de procéder avec prudence, en privilégiant un environnement de développement.';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_b9ff4aa1cb93a366b1973c5c3af52289'] = 'Êtes-vous sûr de vouloir vous déconnecter ?';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_fd541b21fd5a44149a86bc83f5ed7739'] = 'Une erreur s\'est produite lors de la génération du rapport. Cela peut être dû à un délai d\'expiration. Veuillez réessayer.';
+$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_d90237b6602334152220c3825a978ac3'] = 'Une erreur s\'est produite. Activez le mode debug pour plus d\'informations et veuillez réessayer.';
+$_MODULE['<{prestascansecurity}prestashop>prestascansecurity_9cdc88e43e892de1c3f8b949719ed4e2'] = 'Une erreur est survenue. Veuillez réessayer.';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_b5a7adde1af5c87d7fd797b6245c2a39'] = 'Description';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_9eadb78db102ef3b8dc9c43043d26422'] = 'Oui, déconnectez-moi';
 $_MODULE['<{prestascansecurity}prestashop>prestascansecurity_01602a2174d298aea9aa785039556a5a'] = 'Cliquez ici pour actualiser la page';
@@ -227,6 +229,9 @@ $_MODULE['<{prestascansecurity}prestashop>scan_in_progress_b1d3a7a65e4eeebcedc6b
 $_MODULE['<{prestascansecurity}prestashop>scan_in_progress_96726308d783c8c6143d5b22fea5d7fb'] = 'Il semble que le scan dure depuis un certain temps maintenant, il pourrait y avoir un problème.';
 $_MODULE['<{prestascansecurity}prestashop>scan_in_progress_eb83cb7c01a3449487ded1a52bb1836c'] = 'Vous pouvez essayer de forcer le scan pour récupérer ses données. Si cela ne fonctionne pas, le scan sera annulé et vous pourrez réessayer avec un nouveau scan.';
 $_MODULE['<{prestascansecurity}prestashop>scan_in_progress_ba387b98b9462fc96925aadf3f641e6c'] = 'Forcer la récupération ou annuler';
+$_MODULE['<{prestascansecurity}prestashop>scan_to_retrieve_9a2320c81ad462c52e15563fb7d3ee4d'] = 'Téléchargement des derniers scans';
+$_MODULE['<{prestascansecurity}prestashop>scan_to_retrieve_fc4d43c730c5d2ff49c6105683a5b70a'] = 'Le dernier scan automatique est en cours de téléchargement pour son affichage.';
+$_MODULE['<{prestascansecurity}prestashop>scan_to_retrieve_732e91e4bc78bb97e63473154025e419'] = 'Cette opération peut prendre quelques instants.';
 $_MODULE['<{prestascansecurity}prestashop>scan_result_60a1994f5365c8a09a74ac6516b88629'] = 'Derniers résultats de scan';
 $_MODULE['<{prestascansecurity}prestashop>scan_result_f91fe4f33093ee783af6952f653577d4'] = 'Une nouvelle vulnérabilité a été récemment découverte, vérifiez l\'alerte ci-dessus et refaites un scan si nécessaire pour mettre à jour vos résultats';
 $_MODULE['<{prestascansecurity}prestashop>scan_result_535e2de9168013bbfc31965016086243'] = 'Vulnérabilités';

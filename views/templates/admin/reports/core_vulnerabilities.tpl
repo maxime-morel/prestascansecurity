@@ -25,7 +25,11 @@
 {assign var='dataAction' value="generateCoreVulnerabilities"}
 
 {if !empty($progressScans['core_vulnerabilities'])}
-    {include file="{$prestascansecurity_tpl_path|escape:'htmlall':'UTF-8'}partials/scan_in_progress.tpl"  mustcancel=$progressScans['core_vulnerabilities'] datatype='core_vulnerabilities'}
+    {if isset($scansToRetrieve) && isset($scansToRetrieve['core_vulnerabilities']) && $scansToRetrieve['core_vulnerabilities']}
+        {include file="{$prestascansecurity_tpl_path|escape:'htmlall':'UTF-8'}partials/scan_to_retrieve.tpl" datatype='core_vulnerabilities'}
+    {else}
+        {include file="{$prestascansecurity_tpl_path|escape:'htmlall':'UTF-8'}partials/scan_in_progress.tpl"  mustcancel=$progressScans['core_vulnerabilities'] datatype='core_vulnerabilities'}
+    {/if}
 {elseif empty($core_vulnerabilities_results)}
     {include file="{$prestascansecurity_tpl_path|escape:'htmlall':'UTF-8'}partials/start_scan_overlay.tpl" aText=$scan_text dataAction=$dataAction}
 {else}

@@ -64,8 +64,14 @@ $(function () {
       prestascanSecurity_Modal.config.jQuerySelectors.modalBody.html('');
       prestascanSecurity_Modal.config.jQuerySelectors.prestascanModal.hide();
     },
-    createDialog : function(mainContent, buttons, customHtml) {
+    createDialog : function(mainContent, buttons, customHtml, hasError) {
       var modalBody = $(window.prestascanSecurity_Modal.config.cssSelector.modalBody);
+      var modalContent = window.prestascanSecurity_Modal.config.jQuerySelectors.modalContent;
+      if (hasError) {
+        modalContent.addClass('has_error');
+      } else {
+        modalContent.removeClass('has_error');
+      }
       modalBody.html("<p>" + mainContent + "</p>");
       // Add additional html to popup
       if (typeof customHtml !== 'undefined') {

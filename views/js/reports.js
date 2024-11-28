@@ -254,10 +254,40 @@ $(function () {
     },
     loadReportError : function(res) {
       if (res.status === 200) {
+        var $response = $(res.responseText);
+        // Handle error in 1.6
+        if ($response.find('.xdebug-error').length) {
+          var error_text = '<strong>' + js_ps_error_occured + '</strong><br/>';
+          error_text += '<pre> '  + $response.find('.xdebug-error').text() + '</pre>';
+          window.prestascanSecurity_Modal.createDialog(error_text, [], null, true);
+          return;
+        }
         window.prestascanSecurity_Modal.createDialog(res.responseText, []);
 
       } else {
-        window.prestascanSecurity_Modal.createDialog(js_error_occured, []);
+        // handle prestashop error
+        var responseText = $(res.responseText).text();
+        if (responseText) {
+          var $response = $(res.responseText);
+          
+          // Handle Error 500  in 1.7
+          if ($response.find('.error-header').length) {
+            var error_text = '<strong>' + js_ps_nodebug_error_occured + '</strong><br/>';
+            error_text +=  $response.find('.error-header').next().text();
+            window.prestascanSecurity_Modal.createDialog(error_text, [], null, true);
+            return;
+          }          
+          if ($response.find('.stacktrace').length > 0) {            
+            var error_text = '<strong>' + js_ps_error_occured + '</strong><br/>';
+            error_text += '<pre> '  + $response.find('.stacktrace').text() + '</pre>';
+            window.prestascanSecurity_Modal.createDialog(error_text, [], null, true);
+            return;
+          }
+
+          // 1.6
+
+        }
+        window.prestascanSecurity_Modal.createDialog(js_ps_nodebug_error_occured, []);
       }
     },
     postJsonAjax : function(url, data, handlerSuccess, handlerError) {
@@ -801,5 +831,17 @@ window.addEventListener('load', () => {
   if (window.location.search.includes('subRefresh=1')) {
     let cleanUrl = window.location.href.replace(/[\?&]subRefresh=1/, '');
     window.history.replaceState({}, document.title, cleanUrl);
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.opener && window.opener !== window) {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('site_changed')) {
+      // alert('site_changed 2');
+      window.opener.openOauthPsScan();
+    } else {
+      window.close();   // close popup
+    }
   }
 });

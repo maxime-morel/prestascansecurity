@@ -38,7 +38,11 @@
 {/if}
 {assign var='module_update_disclaimer' value={l s='Updating a module in PrestaShop may create side effects if not done carefully, potentially causing system instability or data loss. Make sure to perform this action first in a development environment. Contact your agency or consult our experts if required.' mod='prestascansecurity'}}
 {if !empty($progressScans['modules_vulnerabilities'])}
-    {include file="{$prestascansecurity_tpl_path|escape:'htmlall':'UTF-8'}partials/scan_in_progress.tpl" mustcancel=$progressScans['modules_vulnerabilities'] datatype='modules_vulnerabilities'}
+    {if isset($scansToRetrieve) && isset($scansToRetrieve['modules_vulnerabilities']) && $scansToRetrieve['modules_vulnerabilities']}
+        {include file="{$prestascansecurity_tpl_path|escape:'htmlall':'UTF-8'}partials/scan_to_retrieve.tpl" datatype='modules_vulnerabilities'}
+    {else}
+        {include file="{$prestascansecurity_tpl_path|escape:'htmlall':'UTF-8'}partials/scan_in_progress.tpl" mustcancel=$progressScans['modules_vulnerabilities'] datatype='modules_vulnerabilities'}
+    {/if}
 {elseif !empty($modules_vulnerabilities_results)}
     <div class="result_container col-md-4">
         {include file="{$prestascansecurity_tpl_path|escape:'htmlall':'UTF-8'}/partials/scan_result.tpl"

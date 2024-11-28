@@ -27,7 +27,11 @@
 {assign var='directorie_result_title' value={l s='Directorie(s) at risk' mod='prestascansecurity'}}
 
 {if !empty($progressScans['directories_listing'])}
-    {include file="{$prestascansecurity_tpl_path|escape:'htmlall':'UTF-8'}partials/scan_in_progress.tpl" mustcancel=$progressScans['directories_listing'] datatype='directories_listing'}
+    {if isset($scansToRetrieve) && isset($scansToRetrieve['directories_listing']) && $scansToRetrieve['directories_listing']}
+        {include file="{$prestascansecurity_tpl_path|escape:'htmlall':'UTF-8'}partials/scan_to_retrieve.tpl" datatype='directories_listing'}
+    {else}
+        {include file="{$prestascansecurity_tpl_path|escape:'htmlall':'UTF-8'}partials/scan_in_progress.tpl" mustcancel=$progressScans['directories_listing'] datatype='directories_listing'}
+    {/if}
 {elseif !empty($directories_listing_results)}
     {assign var='scan_result_item_type' value={l s='Directories(s)' mod='prestascansecurity'}}
     {assign var='scan_result_total' value=$directories_listing_results.summary.scan_result_fail_total}
