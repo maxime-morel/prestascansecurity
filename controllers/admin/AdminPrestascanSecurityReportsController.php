@@ -462,7 +462,7 @@ class AdminPrestascanSecurityReportsController extends ModuleAdminController
                 $resetTime .= date('h\hm', strtotime($arrayMessage[1]));
             }
             if ($arrayMessage[0] == 'Too Many Attempts.') {
-                $errorMessage = $this->module->l('You have exceeded the limit of allowed scans for this week. To enjoy unlimited automatic or manual scans, please upgrade to the premium version. This will support our developments and allow us to continue improving our services.','AdminPrestascanSecurityReportsController');
+                $errorMessage = $this->module->l('You have exceeded the limit of allowed scans for this week.','AdminPrestascanSecurityReportsController');
                 $errorMessage .= '<br />';
                 $errorMessage .= $this->module->l('A next scan will be possible on','AdminPrestascanSecurityReportsController') . $resetTime;
             } elseif ($arrayMessage[0] == 'Too Many Attempts for subscribed user.') {
