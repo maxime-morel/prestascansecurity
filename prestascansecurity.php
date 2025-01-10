@@ -33,7 +33,7 @@ class Prestascansecurity extends Module
     {
         $this->name = 'prestascansecurity';
         $this->tab = 'others';
-        $this->version = '1.1.9';
+        $this->version = '1.1.10';
         $this->author = 'PrestaScan';
         $this->need_instance = false;
         $this->bootstrap = true;
