@@ -41,6 +41,7 @@ class AdminPrestascanSecurityReportsController extends ModuleAdminController
     private static $anonymousActions = [
         'logout',
         'dismmissedAlert',
+        'initiateLogin'
     ];
 
     public function init()
@@ -68,6 +69,7 @@ class AdminPrestascanSecurityReportsController extends ModuleAdminController
         // Check if an update is available
         $updateAvailable = Configuration::get('PRESTASCAN_UPDATE_VERSION_AVAILABLE') ? true : false;
         if ($updateAvailable === true
+            && Tools::getValue('action') !== 'initiateLogin'
             && Tools::getValue('action') !== 'updateModule'
             && Tools::getValue('action') !== 'logoutUser'
             && Tools::getValue('action') !== 'dismmissedAlert'
@@ -713,6 +715,12 @@ class AdminPrestascanSecurityReportsController extends ModuleAdminController
         } catch (\Exception $e) {
             self::dieWithError($this->module->l('Error while refreshing subscription. Please try again.', 'AdminPrestascanSecurityReportsController'));
         }
+    }
+
+    public function ajaxProcessInitiateLogin()
+    {
+        $this->module->initiateLoginForm();
+        exit();
     }
 
     private function updateServerDismissed($actionReport, $value, $type, $subtype = '', $vulnerabilitiesCount = null)
