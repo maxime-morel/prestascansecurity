@@ -104,6 +104,7 @@ $_MODULE['<{prestascansecurity}prestashop>adminprestascansecurityreportscontroll
 $_MODULE['<{prestascansecurity}prestashop>adminprestascansecurityreportscontroller_859721119ca1f518a480032b2d6562e0'] = 'Non installé - Inactif';
 $_MODULE['<{prestascansecurity}prestashop>adminprestascansecurityreportscontroller_89460812a5fa89923be6f69f93f36772'] = 'vulnérabilité(s)';
 $_MODULE['<{prestascansecurity}prestashop>report_tabs_bf17ac149e2e7a530c677e9bd51d3fd2'] = 'Modules';
+$_MODULE['<{prestascansecurity}prestashop>initiateloginform_2ea624d388b73c5ad7976bbb9d758a4f'] = 'Redirection en cours...';
 $_MODULE['<{prestascansecurity}prestashop>scan_in_progress_4094dbfe2c9987ee7957b729aa846811'] = 'Scan en cours';
 $_MODULE['<{prestascansecurity}prestashop>scan_in_progress_14560a9120ce1756d9ccd425fff8fda2'] = 'Cette opération peut prendre quelques instants.';
 $_MODULE['<{prestascansecurity}prestashop>scan_in_progress_07c245375408e0d3a84afca1c571c992'] = 'Cette page peut être fermée à tout moment, cela n\'annulera pas le scan.';
@@ -290,10 +291,10 @@ $_MODULE['<{prestascansecurity}prestashop>home_9ecc53a360c8cac77e3404c24f11503a'
 $_MODULE['<{prestascansecurity}prestashop>dashboard_update_module_3cf9a92fd34aecb1af0c5e2c2ee1c04d'] = 'Mise à jour du module nécessaire';
 $_MODULE['<{prestascansecurity}prestashop>dashboard_update_module_8f8c0a7f666e2229f386b6af496e03bd'] = 'Mettez à jour votre module PrestaScan dès que possible pour être alerté des nouvelles menaces.';
 $_MODULE['<{prestascansecurity}prestashop>dashboard_update_module_9dbbb666fc626eb3ed5b6a364149ca12'] = 'Mettre à jour le module';
-$_MODULE['<{prestascansecurity}prestashop>dashboard_security_alerts_f34719911b94445533d1e1714939d515'] = 'ALERTE DE SÉCURITÉ - DANGER IMMÉDIAT';
+$_MODULE['<{prestascansecurity}prestashop>dashboard_security_alerts_2c52d88f3e9b654f2f710f86af0c0b4b'] = 'ALERTE SÉCURITÉ – RISQUE POTENTIEL';
 $_MODULE['<{prestascansecurity}prestashop>dashboard_security_alerts_22e1b3b42496adcc6ee7dcdc8db5d3ab'] = 'Nouvelle vulnérabilité détectée dans le coeur';
-$_MODULE['<{prestascansecurity}prestashop>dashboard_security_alerts_1abf7d0698da0f883cab2c0d4d07742f'] = 'Nouvelle vulnérabilité détectée dans le module';
+$_MODULE['<{prestascansecurity}prestashop>dashboard_security_alerts_9c04c8fc7764136bf60c0fb20dd4b5b1'] = 'Une nouvelle faille a été ajoutée à la base de données du module. Lancez un scan manuel pour vérifier si vous êtes concerné.';
 $_MODULE['<{prestascansecurity}prestashop>dashboard_security_alerts_414e37408502ee8176d750b944403deb'] = 'Criticité';
 $_MODULE['<{prestascansecurity}prestashop>dashboard_security_alerts_a1fa27779242b4902f7ae3bdd5c6d508'] = 'Type';
 $_MODULE['<{prestascansecurity}prestashop>dashboard_security_alerts_b5a7adde1af5c87d7fd797b6245c2a39'] = 'Description';
-$_MODULE['<{prestascansecurity}prestashop>dashboard_security_alerts_837d4de87d1745235bad4609b6c5370c'] = 'Résoudre ceci';
+$_MODULE['<{prestascansecurity}prestashop>dashboard_security_alerts_924efb8414fbca05d721d87cd806d298'] = 'Lancer le scan';

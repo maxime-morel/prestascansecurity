@@ -33,7 +33,7 @@ class Prestascansecurity extends Module
     {
         $this->name = 'prestascansecurity';
         $this->tab = 'others';
-        $this->version = '1.1.10';
+        $this->version = '1.1.11';
         $this->author = 'PrestaScan';
         $this->need_instance = false;
         $this->bootstrap = true;
@@ -55,7 +55,9 @@ class Prestascansecurity extends Module
             !$this->createTabs() ||
             !$this->generateModuleHash() ||
             !$this->installDb() ||
-            !$this->registerHook('dashboardZoneOne')) {
+            !$this->registerHook('dashboardZoneOne') ||
+            !$this->registerHook('actionAdminControllerSetMedia')
+        ) {
             return false;
         }
         Configuration::updateGlobalValue(
@@ -239,6 +241,22 @@ class Prestascansecurity extends Module
 
         $this->context->controller->addCSS($this->_path . 'views/css/dashboard.1.1.6.css');
         return $this->display(__FILE__, 'dashboard_zone_two.tpl');
+    }
+
+    public function hookActionAdminControllerSetMedia($params)
+    {
+        if (Tools::getValue('controller') == 'AdminModules' && Tools::getValue('configure') == 'prestascansecurity') {            
+            $urlInitiateLogin = $this->context->link->getAdminLink('AdminPrestascanSecurityReports') . '&ajax=1&action=initiateLogin';
+            if (Tools::getValue('devdomainurl')) {
+                $urlInitiateLogin .= '&devdomainurl=' . Tools::getValue('devdomainurl');
+            }
+            if (Tools::getValue('devredirecturl')) {
+                $urlInitiateLogin .= '&devredirecturl=' . Tools::getValue('devredirecturl');
+            }
+            Media::addJsDef([
+                'psscan_urlInitiateLogin' => $urlInitiateLogin,
+            ]);
+        }        
     }
 
     public function generateModuleHash()
@@ -492,6 +510,7 @@ class Prestascansecurity extends Module
                 $this->name .'&tab_module=' .
                 $this->tab . '&module_name=' .
                 $this->name . '&token=' . Tools::getAdminTokenLite('AdminModules');
+
         $this->context->smarty->assign([
             'prestascansecurity_tokenfc' => $tokenFC,
             'prestascansecurity_shopurl' => \PrestaScan\Tools::getShopUrl(),
@@ -500,14 +519,14 @@ class Prestascansecurity extends Module
             'prestascansecurity_e_email' => $this->context->employee->email,
             // For custom environments (dev)
             'prestascansecurity_devdomainurl' => Tools::getValue('devdomainurl') ?
-                urlencode(Tools::getValue('devdomainurl')) : 0,
+                Tools::getValue('devdomainurl') : 0,
             'prestascansecurity_devredirecturl' => Tools::getValue('devredirecturl') ?
-                urlencode(Tools::getValue('devredirecturl')) : 0,
+                Tools::getValue('devredirecturl') : 0,
             'webcron_token' => Configuration::get('PRESTASCAN_WEBCRON_TOKEN'),
-            'ps_shop_urls' => implode(';', array_map('urlencode', $this->getShopUrls())),
+            'ps_shop_urls' => implode(';', $this->getShopUrls()),
             // We retrive the module configuration URL in order to redirect into it after email verification
             // This URL will be kept localy in a cookie during registration
-            'psscan_urlconfigbo' => urlencode(\PrestaScan\Tools::enforeHttpsIfAvailable($urlConfigBo)),
+            'psscan_urlconfigbo' => \PrestaScan\Tools::enforeHttpsIfAvailable($urlConfigBo),
         ]);
     }
 
@@ -716,5 +735,17 @@ class Prestascansecurity extends Module
         } else {
             die($this->display(__FILE__, 'views/templates/front/sitemonitored_changed.tpl'));
         }
+    }
+
+    public function initiateLoginForm()
+    {
+        if ($this->isUserLoggedIn()) {            
+            Tools::redirectAdmin($this->context->link->getAdminLink('AdminModules') . '&configure=prestascansecurity');
+        }
+        $this->assignRegistrationVariables();
+        $this->context->smarty->assign(array(
+            'oauth_url' => \PrestaScan\Tools::getShopUrl() . '?fc=module&module=prestascansecurity&controller=oauth2',
+        ));
+        die($this->display(__FILE__, 'views/templates/admin/initiateLoginForm.tpl'));
     }
 }

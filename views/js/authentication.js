@@ -40,18 +40,7 @@ function openOauthPsScan() {
     var params = "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width="+width+",height="+height+",left="+x+",top="+y;
     
     // We open our popup
-    var win = window.open(prestascansecurity_shopurl+'?fc=module&module=prestascansecurity&controller=oauth2'
-        +'&login=true'
-        +'&token='+prestascansecurity_tokenfc
-        +'&firstname='+prestascansecurity_e_firstname
-        +'&lastname='+prestascansecurity_e_lastname
-        +'&email='+prestascansecurity_e_email
-        +'&webcrontoken='+webcron_token
-        +'&ps_shop_urls='+ps_shop_urls
-        +'&devdomainurl='+prestascansecurity_devdomainurl
-        +'&devredirecturl='+prestascansecurity_devredirecturl
-        +'&psscan_urlconfigbo='+psscan_urlconfigbo,
-        winName, params);
+    var win = window.open(psscan_urlInitiateLogin, winName, params);
     var timer = setInterval(function() { 
         if(win.closed) {
             clearInterval(timer);

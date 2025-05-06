@@ -22,12 +22,12 @@
  *}
 {assign var='criticity' value=$alert_modules_vulnerability[0].criticity}
 <p class="title-alert">
-    <strong>{l s='SECURITY ALERT - IMMEDIATE DANGER' mod='prestascansecurity'}</strong>
+    <strong>{l s='SECURITY ALERT - POTENTIAL RISK' mod='prestascansecurity'}</strong>
 </p>
 {if $alert_modules_vulnerability[0].is_core}
     <p>{l s='New core vulnerability detected' mod='prestascansecurity'} <strong></strong></p>
 {else}
-    <p>{l s='New vulnerability detected in the module' mod='prestascansecurity'} <strong>{if isset($alert_modules_vulnerability[0].name)} {$alert_modules_vulnerability[0].name} {/if}</strong></p>
+    <p>{l s='A new vulnerability has been added to the module\'s database. Run a manual scan to check if you are affected.' mod='prestascansecurity'} <strong>{if isset($alert_modules_vulnerability[0].name)} {$alert_modules_vulnerability[0].name} {/if}</strong></p>
 {/if}
 {if (!$alert_modules_vulnerability[0].is_core && isset($alert_modules_vulnerability[0].module_name) && $alert_modules_vulnerability[0].module_name != 'alert_module_no_detail')
     || ($alert_modules_vulnerability[0].is_core && isset($alert_modules_vulnerability[0].module_name) && $alert_modules_vulnerability[0].module_name != 'alert_core_no_detail')
@@ -38,4 +38,4 @@
     <li>{l s='Description' mod='prestascansecurity'} : {$alert_modules_vulnerability[0].description}</li>
 </ul>
 {/if}
-<p class='button-center'><a class="btn-generate-report btn btn-default btn-action-module-dash" data-action="generateModulesReport" href="{$module_link}"><span>{l s='Resolve this' mod='prestascansecurity'}</span></a></p>
+<p class='button-center'><a class="btn-generate-report btn btn-default btn-action-module-dash" data-action="generateModulesReport" href="{$module_link}"><span>{l s='Run a scan' mod='prestascansecurity'}</span></a></p>
